@@ -7,7 +7,9 @@ const Message = styled.p`
   color: #ff0000;
 `;
 
-const Notification = ({ message }) => <Message>{message}</Message>;
+const Notification = ({ message }) => {
+  return <Message>{message}</Message>;
+};
 
 Notification.propTypes = {
   message: PropTypes.string.isRequired,

@@ -17,12 +17,8 @@ const Container = styled.div`
   padding: 20px;
 `;
 
-export const App = () => {
-  const [feedback, setFeedback] = useState({
-    good: 0,
-    neutral: 0,
-    bad: 0,
-  });
+export function App() {
+  const [feedback, setFeedback] = useState({ good: 0, neutral: 0, bad: 0 });
 
   const handleFeedback = type => {
     setFeedback(prevFeedback => ({
@@ -36,11 +32,11 @@ export const App = () => {
   };
 
   const countPositiveFeedbackPercentage = () => {
-    const total = countTotalFeedback();
-    return total ? Math.round((feedback.good / total) * 100) : 0;
+    return Math.round((feedback.good / countTotalFeedback()) * 100);
   };
 
   const totalFeedback = countTotalFeedback();
+  const positivePercentage = countPositiveFeedbackPercentage();
 
   return (
     <Container>
@@ -51,13 +47,13 @@ export const App = () => {
         />
       </Section>
       <Section title="Statistics">
-        {totalFeedback ? (
+        {totalFeedback > 0 ? (
           <Statistics
             good={feedback.good}
             neutral={feedback.neutral}
             bad={feedback.bad}
             total={totalFeedback}
-            positivePercentage={countPositiveFeedbackPercentage()}
+            positivePercentage={positivePercentage}
           />
         ) : (
           <Notification message="There is no feedback" />
@@ -65,4 +61,4 @@ export const App = () => {
       </Section>
     </Container>
   );
-};
+}

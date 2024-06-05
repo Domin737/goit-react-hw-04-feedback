@@ -15,12 +15,14 @@ const Title = styled.h2`
   color: #333;
 `;
 
-const Section = ({ title, children }) => (
-  <SectionWrapper>
-    <Title>{title}</Title>
-    {children}
-  </SectionWrapper>
-);
+const Section = ({ title, children }) => {
+  return (
+    <SectionWrapper>
+      <Title>{title}</Title>
+      {children}
+    </SectionWrapper>
+  );
+};
 
 Section.propTypes = {
   title: PropTypes.string.isRequired,

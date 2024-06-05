@@ -15,15 +15,17 @@ const StatItem = styled.p`
   font-size: 18px;
 `;
 
-const Statistics = ({ good, neutral, bad, total, positivePercentage }) => (
-  <StatList>
-    <StatItem>Good: {good}</StatItem>
-    <StatItem>Neutral: {neutral}</StatItem>
-    <StatItem>Bad: {bad}</StatItem>
-    <StatItem>Total: {total}</StatItem>
-    <StatItem>Positive feedback: {positivePercentage}%</StatItem>
-  </StatList>
-);
+const Statistics = ({ good, neutral, bad, total, positivePercentage }) => {
+  return (
+    <StatList>
+      <StatItem>Good: {good}</StatItem>
+      <StatItem>Neutral: {neutral}</StatItem>
+      <StatItem>Bad: {bad}</StatItem>
+      <StatItem>Total: {total}</StatItem>
+      <StatItem>Positive feedback: {positivePercentage}%</StatItem>
+    </StatList>
+  );
+};
 
 Statistics.propTypes = {
   good: PropTypes.number.isRequired,
